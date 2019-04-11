@@ -1,0 +1,10 @@
+<div class="container">
+	<div class="card mt-5 mb-5">
+		<img src="<%= @article.img_url %>" class="card-img-top" alt="...">
+		<div class="card-body">
+			<h5 class="card-title"><%= @article.title %></h5>
+			<p class="card-text"><%= @article.content %></p>
+			<p class="card-text"><small class="text-muted"><%= @article.updated_at %> 最終更新日</small></p>
+		</div>
+	</div>
+</div>
