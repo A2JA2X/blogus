@@ -15,7 +15,7 @@
 |Column|Type|Options|
 |------|----|-------|
 |id|integer|null: false, unique: true|
-|title|string|index: true, null: false|
+|title|string|index: true|
 |content|text||
 |img_url|text||
 |like_id|integer|null: false|
