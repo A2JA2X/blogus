@@ -17,6 +17,17 @@ class ArticlesController < ApplicationController
     Article.create(title: article_params[:title], content: article_params[:content], img_url: article_params[:img_url], user_id: 1)
   end
 
+  def edit
+    @article = Article.find(params[:id])
+  end
+
+  def update
+    # todo: 現状では誰でも編集可能になってしまっている。投稿したユーザだけが編集できるようにする
+    # ユーザ周りの作業の際に行う
+    article = Article.find(params[:id])
+    article.update(title: article_params[:title], content: article_params[:content], img_url: article_params[:img_url])
+  end
+
   private
   def article_params
     params.require(:article).permit(:title, :content, :img_url)
