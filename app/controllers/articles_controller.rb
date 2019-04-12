@@ -28,6 +28,11 @@ class ArticlesController < ApplicationController
     article.update(title: article_params[:title], content: article_params[:content], img_url: article_params[:img_url])
   end
 
+  def destroy
+    article = Article.find(params[:id])
+    article.destroy
+  end
+
   private
   def article_params
     params.require(:article).permit(:title, :content, :img_url)
