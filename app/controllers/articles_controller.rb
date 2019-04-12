@@ -15,6 +15,7 @@ class ArticlesController < ApplicationController
 
   def create
     Article.create(title: article_params[:title], content: article_params[:content], img_url: article_params[:img_url], user_id: current_user.id)
+    redirect_to action: :index
   end
 
   def edit
