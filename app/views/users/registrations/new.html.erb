@@ -3,27 +3,33 @@
 <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
   <%= render "devise/shared/error_messages", resource: resource %>
 
-  <div class="field">
-    <%= f.label :email %><br />
-    <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+  <div class="form-group">
+    <label for="name">Name</label>
+    <%= f.text_field :name, autofocus: true, maxlength: "6", class: "form-control", placeholder: "Tarou" %>
   </div>
 
-  <div class="field">
-    <%= f.label :password %>
+  <div class="form-group">
+    <label for="mail">Email address</label>
+    <%= f.email_field :email, autofocus: true, autocomplete: "email", class: "form-control", placeholder: "example@gmail.com" %>
+    <small id="emailHelp" class="form-text text-muted">メールアドレスは公開されません。</small>
+  </div>
+
+  <div class="form-group">
+    <label for="pass">Password</label>
     <% if @minimum_password_length %>
     <em>(<%= @minimum_password_length %> characters minimum)</em>
     <% end %><br />
-    <%= f.password_field :password, autocomplete: "new-password" %>
+    <%= f.password_field :password, autocomplete: "new-password", class: "form-control" %>
   </div>
 
-  <div class="field">
-    <%= f.label :password_confirmation %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "new-password" %>
+  <div class="form-group">
+    <label for="confirmPass">Password</label>
+    <%= f.password_field :password_confirmation, autocomplete: "new-password", class: "form-control" %>
   </div>
 
   <div class="actions">
-    <%= f.submit "Sign up" %>
+    <%= f.submit "登録", class: "btn btn-primary btn-lg mb-3" %>
   </div>
 <% end %>
 
-<%= render "users/shared/links" %>
+または、<%= render "users/shared/links" %>

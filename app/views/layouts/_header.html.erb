@@ -1,0 +1,34 @@
+<nav class="navbar navbar-expand-lg shadow-sm navbar-light bg-light sticky-top">
+  <div class="container">
+    <a class="navbar-brand" href="/">BlogUs</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav ml-auto">
+      <% if user_signed_in? %>
+        <li class="nav-item active">
+          <a class="nav-link" href="articles/new">投稿</a>
+        </li>
+        <li class="nav-item dropdown">
+          <a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+            User
+          </a>
+          <div class="dropdown-menu" aria-labelledby="navbarDropdown">
+            <%= link_to "マイページ", users_show_path, class: "nav-link" %>
+            <div class="dropdown-divider"></div>
+            <%= link_to "ログアウト", destroy_user_session_path, method: "delete", class: "nav-link text-danger" %>
+          </div>
+        </li>
+      <% else %>
+        <li class="nav-item active">
+          <%= link_to "ログイン", new_user_session_path, class: "nav-link" %>
+        </li>
+        <li class="nav-item active">
+          <%= link_to "登録", new_user_registration_path, class: "nav-link" %>
+        </li>
+      <% end %>
+  </div>
+  </div>
+</nav>
