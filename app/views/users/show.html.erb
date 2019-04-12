@@ -1,0 +1,14 @@
+<div class="row mt-5">
+	<% @articles.each do |article| %>
+	<div class="col-md-6 col-lg-4 card-deck mb-3">
+		<div class="card">
+			<img src="<%= article.img_url %>" class="card-img-top" alt="<%= article.title %>">
+			<div class="card-body">
+				<h5 class="card-title"><%= article.title %></h5>
+				<p class="card-text text-truncate" style="max-width: 180px;"><%= article.content %></p>
+				<%= link_to "記事へ", "articles/#{article.id}", class: "btn btn-primary" %>
+			</div>
+		</div>
+	</div>
+	<% end %>
+</div>
