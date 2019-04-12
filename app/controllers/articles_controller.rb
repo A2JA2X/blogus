@@ -1,5 +1,5 @@
 class ArticlesController < ApplicationController
-  before_action :move_to_index, except: :index
+  before_action :move_to_index, except: [:index, :show]
 
   def index
     @articles = Article.all
