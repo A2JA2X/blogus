@@ -1,24 +1,15 @@
 <%# コンテンツ %>
 <% @articles.each do |article| %>
-<div class="card mt-5">
+<div class="card mt-5 shadow-sm">
   <div class="row no-gutters">
     <div class="col-md-6">
-      <img src="<%= article.img_url %>" class="card-img" alt="<%= article.title %>">
+      <img src="<%= article.img_url %>" class="card-img shadow-sm" alt="<%= article.title %>">
     </div>
     <div class="col-md-6">
       <div class="card-body">
-        <div class="btn-group float-right">
-          <button type="button" class="btn btn-light dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            操作
-          </button>
-          <div class="dropdown-menu dropdown-menu-right">
-            <a class="dropdown-item" href="articles/<%= article.id %>/edit">編集</a>
-            <%= link_to '削除', "/articles/#{article.id}", method: :delete, class: "dropdown-item text-danger" %>
-          </div>
-        </div>
         <h1 class="card-title"><%= article.title %></h1>
         <hr>
-        <p class="card-text"><%= article.content %></p>
+        <p class="card-text text-truncate"><%= article.content %></p>
         <p class="card-text"><small class="text-muted"><%= article.created_at %> 投稿</small></p>
         <a href="/articles/<%= article.id %>" class="btn btn-primary">記事へ</a>
       </div>

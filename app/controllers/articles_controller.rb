@@ -1,5 +1,5 @@
 class ArticlesController < ApplicationController
-  before_action :move_to_index, except: :index
+  before_action :move_to_index, except: [:index, :show]
 
   def index
     @articles = Article.all
@@ -15,6 +15,7 @@ class ArticlesController < ApplicationController
 
   def create
     Article.create(title: article_params[:title], content: article_params[:content], img_url: article_params[:img_url], user_id: current_user.id)
+    redirect_to action: :index
   end
 
   def edit
