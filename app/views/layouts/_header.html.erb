@@ -1,0 +1,30 @@
+<nav class="navbar navbar-expand-lg shadow-sm navbar-light bg-light sticky-top">
+  <div class="container">
+    <a class="navbar-brand" href="/">BlogUs</a>
+  <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+    <span class="navbar-toggler-icon"></span>
+  </button>
+
+  <div class="collapse navbar-collapse" id="navbarSupportedContent">
+    <ul class="navbar-nav ml-auto">
+      <% if user_signed_in? %>
+        <li class="nav-item active">
+          <a class="nav-link" href="articles/new">投稿</a>
+        </li>
+        <li class="nav-item active">
+          <a href="#" class="nav-link">マイページ</a>
+        </li>
+        <li class="nav-item active">
+          <a href="#" class="nav-link">ログアウト</a>
+        </li>
+      <% else %>
+        <li class="nav-item active">
+          <a class="nav-link" href="users/sign_in">ログイン</a>
+        </li>
+        <li class="nav-item active">
+          <a class="nav-link" href="articles/new">登録</a>
+        </li>
+      <% end %>
+  </div>
+  </div>
+</nav>
