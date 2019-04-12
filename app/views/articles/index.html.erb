@@ -7,15 +7,6 @@
     </div>
     <div class="col-md-6">
       <div class="card-body">
-        <div class="btn-group float-right">
-          <button type="button" class="btn btn-light dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-            操作
-          </button>
-          <div class="dropdown-menu dropdown-menu-right">
-            <a class="dropdown-item" href="articles/<%= article.id %>/edit">編集</a>
-            <%= link_to '削除', "/articles/#{article.id}", method: :delete, class: "dropdown-item text-danger" %>
-          </div>
-        </div>
         <h1 class="card-title"><%= article.title %></h1>
         <hr>
         <p class="card-text text-truncate"><%= article.content %></p>
