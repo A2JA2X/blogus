@@ -15,7 +15,7 @@
 		<div class="card mb-3">
 			<div class="card-body">
 				<h5 class="card-title"><%= comment.user.name%></h5>
-				<p class="card-text"><%= comment.content %></p>
+				<p class="card-text"><%= comment.comment_content %></p>
 				<p class="blockquote-footer"><%= comment.created_at %></p>
 			</div>
 		</div>
@@ -23,9 +23,11 @@
 	</div>
 </div>
 
+<%= form_for [@article, @comment] do |form| %>
 <div class="input-group mt-3 mb-3">
-  <input type="text" class="form-control" placeholder="コメント" aria-label="Recipient's username" aria-describedby="button-addon2">
+	<%= form.text_field :comment_content, class: "form-control", placeholder: "コメント" %>
   <div class="input-group-append">
-    <button class="btn btn-outline-secondary" type="button" id="button-addon2">コメント投稿</button>
+		<%= form.submit "コメント投稿", class: "btn btn-outline-secondary" %>
   </div>
 </div>
+<% end %>
