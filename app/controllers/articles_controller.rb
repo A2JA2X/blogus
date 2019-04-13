@@ -25,6 +25,7 @@ class ArticlesController < ApplicationController
   def update
     article = Article.find(params[:id])
     article.update(title: article_params[:title], content: article_params[:content], img_url: article_params[:img_url])
+    redirect_to controller: :users, action: :show
   end
 
   def destroy
