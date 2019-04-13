@@ -15,7 +15,7 @@ class ArticlesController < ApplicationController
 
   def create
     Article.create(title: article_params[:title], content: article_params[:content], img_url: article_params[:img_url], user_id: current_user.id)
-    redirect_to action: :index
+    redirect_to controller: :users, action: :show, id: current_user.id
   end
 
   def edit
@@ -25,11 +25,13 @@ class ArticlesController < ApplicationController
   def update
     article = Article.find(params[:id])
     article.update(title: article_params[:title], content: article_params[:content], img_url: article_params[:img_url])
+    redirect_to controller: :users, action: :show
   end
 
   def destroy
     article = Article.find(params[:id])
     article.destroy
+    redirect_to controller: :users, action: :show
   end
 
   private
