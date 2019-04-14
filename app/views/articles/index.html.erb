@@ -7,7 +7,7 @@
     </div>
     <div class="col-md-6">
       <div class="card-body">
-        <h4><%= link_to article.user.name, user_path(article.user.id), class: "badge badge-pill badge-info float-right" %></h4>
+        <h5><%= link_to article.user.name, user_path(article.user.id), class: "badge badge-pill badge-info float-right" %></h5>
         <h1 class="card-title"><%= article.title %></h1>
         <hr>
         <p class="card-text text-truncate"><%= article.content %></p>
