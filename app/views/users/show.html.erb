@@ -13,9 +13,9 @@
 					操作
 				</button>
 				<div class="dropdown-menu dropdown-menu-right">
-					<%= link_to '編集', "/articles/#{article.id}/edit", class: "dropdown-item text-primary" %>
+					<%= link_to '編集', edit_article_path(article.id), class: "dropdown-item text-primary" %>
 					<div class="dropdown-divider"></div>
-					<%= link_to '削除', "/articles/#{article.id}", method: :delete, class: "dropdown-item text-danger" %>
+					<%= link_to '削除', article_path(article.id), method: :delete, class: "dropdown-item text-danger" %>
 				</div>
 				</div>
 			</div>
