@@ -1,5 +1,5 @@
 <div class="card mt-5 mb-5 shadow">
-	<img src="<%= @article.img_url %>" class="card-img-top" alt="...">
+	<img src="<%= @article.img_url %>" class="card-img-top" style="height: 300px; object-fit: cover;" alt="...">
 	<div class="card-body">
 		<h5 class="card-title"><%= @article.title %></h5>
 		<p class="card-text"><%= simple_format(@article.content) %></p>
@@ -21,14 +21,26 @@
 		</div>
 		<% end %>
 	</div>
+
 	<div class="card-footer">
 		<%= form_for [@article, @comment] do |form| %>
 		<div class="input-group mt-3 mb-3">
 			<%= form.text_field :comment_content, class: "form-control", placeholder: "コメント" %>
 			<div class="input-group-append">
-				<%= form.submit "コメント投稿", class: "btn btn-primary" %>
+				<% if user_signed_in? %>
+					<%= form.submit "コメント投稿", class: "btn btn-primary" %>
+				<% else %>
+					<span data-toggle="tooltip" title="投稿するにはログインする必要があります">
+						<button class="btn btn-primary" style="pointer-events: none;border-radius: 0px 5px 5px 0;" type="button" disabled>コメント投稿</button>
+					</span>
+				<% end %>
 			</div>
 		</div>
 		<% end %>
 	</div>
 </div>
+<script>
+  $(function () {
+    $('[data-toggle="tooltip"]').tooltip()
+  })
+</script>
