@@ -1,23 +1,24 @@
-<h1 class="mt-2"><%= current_user.name %>の部屋</h1>
+<h1 class="mt-2"><%= @user.name %>の部屋</h1>
 <div class="row mt-5">
 	<% @articles.each do |article| %>
 	<div class="col-md-6 col-lg-4 card-deck mb-3">
 		<div class="card shadow">
-			<%# <%= image_tag article.img_url, class: "card-img-top", alt: article.title %>
 			<%= link_to (image_tag article.img_url, class: "card-img-top"), article_path(article.id) %>
 			<div class="card-body">
 				<h5 class="card-title"><%= article.title %></h5>
 				<p class="card-text text-truncate" style="max-width: 180px;"><%= article.content %></p>
+				<% if user_signed_in? && current_user.id == @user.id %>
 				<div class="btn-group float-right">
-				<button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
-					操作
-				</button>
-				<div class="dropdown-menu dropdown-menu-right">
-					<%= link_to '編集', edit_article_path(article.id), class: "dropdown-item text-primary" %>
-					<div class="dropdown-divider"></div>
-					<%= link_to '削除', article_path(article.id), method: :delete, class: "dropdown-item text-danger" %>
+					<button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+						操作
+					</button>
+					<div class="dropdown-menu dropdown-menu-right">
+						<%= link_to '編集', edit_article_path(article.id), class: "dropdown-item text-primary" %>
+						<div class="dropdown-divider"></div>
+						<%= link_to '削除', article_path(article.id), method: :delete, class: "dropdown-item text-danger" %>
+					</div>
 				</div>
-				</div>
+				<% end %>
 			</div>
 		</div>
 	</div>
