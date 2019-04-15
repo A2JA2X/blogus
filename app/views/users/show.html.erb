@@ -15,7 +15,9 @@
 					<div class="dropdown-menu dropdown-menu-right">
 						<%= link_to '編集', edit_article_path(article.id), class: "dropdown-item text-primary" %>
 						<div class="dropdown-divider"></div>
-						<%= link_to '削除', article_path(article.id), method: :delete, class: "dropdown-item text-danger" %>
+						<%= link_to '削除', article_path(article.id), method: :delete, class: "dropdown-item text-danger",
+						data: { confirm: "本当に「<strong>#{article.title}</strong>」を削除してよろしいですか？", 
+						commit: "削除する", cancel: "やっぱりやめる" }, title: "削除の確認" %>
 					</div>
 				</div>
 				<% end %>
