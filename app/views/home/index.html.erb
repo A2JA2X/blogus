@@ -4,7 +4,9 @@
         <div class="mx-auto text-dark text-center">
           <h1 class="display-1">Blog Us</h1>
           <p class="display-4">皆のブログ</p>
-          <%= link_to "仲間になろう", new_user_registration_path, class: "btn btn-primary btn-lg shadow" %>
+          <% unless user_signed_in? %>
+            <%= link_to "仲間になろう", new_user_registration_path, class: "btn btn-primary btn-lg shadow" %>
+          <% end %>
           <%= link_to "記事一覧", articles_path, class: "btn btn-info btn-lg" %>
         </div>
     </div>
