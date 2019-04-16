@@ -4,7 +4,7 @@
 			<div class="card-body">
 				<h5 class="card-title"><%= article.title %></h5>
 				<p class="card-text text-truncate" style="max-width: 180px;"><%= article.content %></p>
-				<% if user_signed_in? && current_user.id == @user.id %>
+				<% if current_user_has?(article) %>
 				<div class="btn-group float-right">
 					<button type="button" class="btn btn-primary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
 						操作
