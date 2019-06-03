@@ -1,5 +1,5 @@
 <div class="mt-5">
-	<%= form_for @article, url:{ action: 'update', method: 'patch' } do |form|%>
-		<%= render partial: "form", locals: { form: form, act_btn: "反映" } %>
+	<%= form_for @article, url:{ action: 'update', method: 'patch' } do |article|%>
+		<%= render partial: "form", locals: { article: article, act_btn: "反映" } %>
 	<% end %>
 </div>

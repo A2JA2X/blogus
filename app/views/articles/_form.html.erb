@@ -1,15 +1,17 @@
 <div class="form-group">
-<label for="img">画像リンク</label>
-  <%= form.text_field :img_url, id: "img", class: "form-control" %>
+  <div class="custom-file">
+    <%= article.file_field :image, id: "img", class: "custom-file-input" %>
+    <label class="custom-file-label" for="img">画像を選択</label>
+  </div>
 </div>
 <div class="form-group">
   <label for="title">タイトル</label>
-  <%= form.text_field :title, id: "title", class: "form-control" %>
+  <%= article.text_field :title, id: "title", class: "form-control" %>
 </div>
 <div class="form-group">
   <label for="content">内容</label>
-  <%= form.text_area :content, id: "content", rows: "8", class: "form-control" %>
+  <%= article.text_area :content, id: "content", rows: "8", class: "form-control" %>
 </div>
 <div class="text-right">
-  <%= form.submit act_btn, class: "btn btn-primary" %>
+  <%= article.submit act_btn, class: "btn btn-primary" %>
 </div>
