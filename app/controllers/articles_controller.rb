@@ -35,7 +35,7 @@ class ArticlesController < ApplicationController
 
   private
   def article_params
-    params.require(:article).permit(:title, :content, :img_url).merge(user_id: current_user.id)
+    params.require(:article).permit(:title, :content, :image).merge(user_id: current_user.id)
   end
 
   def redirect_to_msg(msg)

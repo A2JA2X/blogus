@@ -1,6 +1,8 @@
 <div class="col-md-6 col-lg-4 card-deck mb-3">
 		<div class="card shadow">
-			<%= link_to (image_tag article.img_url, class: "card-img-top"), article_path(article.id) %>
+			<%= link_to article_path(article.id) do %>
+				<%= image_tag article.image_url, class: "card-img-top" %>
+			<% end %>
 			<div class="card-body">
 				<h5 class="card-title"><%= article.title %></h5>
 				<p class="card-text text-truncate" style="max-width: 180px;"><%= article.content %></p>
